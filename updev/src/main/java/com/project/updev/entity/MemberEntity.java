@@ -8,7 +8,6 @@ import javax.persistence.*;
 import java.sql.Date;
 import java.time.LocalDate;
     @NoArgsConstructor
-    @AllArgsConstructor
     @Getter
     @Setter
     @Entity
@@ -24,27 +23,27 @@ public class MemberEntity {
     Long id;
 
         @Column(name = "m_id")
-        String m_id;
+        private String m_id;
         @Column(name = "m_pw")
-        String m_pw;
+        private String m_pw;
         @Column(name = "m_nick")
-        String m_nick;
+        private String m_nick;
         @Column(name = "m_name")
-        String m_name;
+        private String m_name;
         @Column(name = "m_mail")
-        String m_mail;
+        private String m_mail;
         @Column(name = "m_tel")
-        String m_tel;
+        private String m_tel;
         @Column(name = "m_field")
-        String m_field;
+        private String m_field;
         @Column(name = "m_jdate")
-        LocalDate m_jdate;
+        private LocalDate m_jdate;
         @Column(name = "m_grade")
-        String m_grade;
+        private String m_grade;
         @Column(name = "m_outtime")
-        LocalDate m_outtime;
+        private LocalDate m_outtime;
 
-        /*@Builder
+        @Builder
         public MemberEntity(Long id, String m_id, String m_pw, String m_nick, String m_name, String m_mail, String m_tel, String m_field, LocalDate m_jdate, String m_grade, LocalDate m_outtime) {
             this.id = id;
             this.m_id = m_id;
@@ -57,6 +56,6 @@ public class MemberEntity {
             this.m_jdate = m_jdate;
             this.m_grade = m_grade;
             this.m_outtime = m_outtime;
-        }*/
+        }
 
 }

@@ -4,11 +4,10 @@ import com.project.updev.dto.MemberDTO;
 import com.project.updev.entity.MemberEntity;
 import com.project.updev.service.MemberService;
 import com.project.updev.service.UserService;
-import org.apache.ibatis.session.SqlSession;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,17 +16,17 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 
 @Controller
+@AllArgsConstructor
 public class MemberController {
 
     @Autowired
-    MemberService memberService;
-    UserService userService;
+    private final MemberService memberService;
+    private final UserService userService;
 
     // 회원가입폼으로 이동
     @GetMapping(value = "/signup")
@@ -66,7 +65,7 @@ public class MemberController {
         MemberEntity entity = memberDTO.toEntity();
         System.out.println(entity+"내가 앤티티");
         userService.input(entity);
-            return "redirect:/index";
+            return "redirect:/";
 
     }
 
