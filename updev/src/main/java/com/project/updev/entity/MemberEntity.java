@@ -7,8 +7,8 @@ import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.*;
 import java.sql.Date;
 import java.time.LocalDate;
-    @AllArgsConstructor
     @NoArgsConstructor
+    @AllArgsConstructor
     @Getter
     @Setter
     @Entity
@@ -16,32 +16,47 @@ import java.time.LocalDate;
     @DynamicUpdate
     @DynamicInsert
     @ToString
-public class MemberEntity {
     @SequenceGenerator(name = "member_seq_GENERATOR",sequenceName = "m_seq", allocationSize = 1, initialValue = 1)
+public class MemberEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "member_seq_GENERATOR")
-    @Column
+    @Column(name = "id")
     Long id;
 
-        @Column
+        @Column(name = "m_id")
         String m_id;
-        @Column
+        @Column(name = "m_pw")
         String m_pw;
-        @Column
+        @Column(name = "m_nick")
         String m_nick;
-        @Column
+        @Column(name = "m_name")
         String m_name;
-        @Column
+        @Column(name = "m_mail")
         String m_mail;
-        @Column
+        @Column(name = "m_tel")
         String m_tel;
-        @Column
+        @Column(name = "m_field")
         String m_field;
-        @Column
+        @Column(name = "m_jdate")
         LocalDate m_jdate;
-        @Column
+        @Column(name = "m_grade")
         String m_grade;
-        @Column
+        @Column(name = "m_outtime")
         LocalDate m_outtime;
+
+        /*@Builder
+        public MemberEntity(Long id, String m_id, String m_pw, String m_nick, String m_name, String m_mail, String m_tel, String m_field, LocalDate m_jdate, String m_grade, LocalDate m_outtime) {
+            this.id = id;
+            this.m_id = m_id;
+            this.m_pw = m_pw;
+            this.m_nick = m_nick;
+            this.m_name = m_name;
+            this.m_mail = m_mail;
+            this.m_tel = m_tel;
+            this.m_field = m_field;
+            this.m_jdate = m_jdate;
+            this.m_grade = m_grade;
+            this.m_outtime = m_outtime;
+        }*/
 
 }

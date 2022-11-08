@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <div th:replace="top::menu"></div>
 <style>
     p{
@@ -9,7 +9,7 @@
 </style>
 <body>
 <h2 style="text-align:center">자료 입력</h2>
-<form action="member_signup" method="post">
+<form th:action="@{/signup}" method="post" modelAttribute="MemberDTO" th:object="${MemberDTO}">
 <table border="1" align="center">
   <tr>
       <th>아이디</th>

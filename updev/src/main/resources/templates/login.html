@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="top::menu"></div>
+<style>
+    p{
+    color:red;
+    }
+</style>
+<body>
+<h2 style="text-align:center">자료 입력</h2>
+<div th:if="${param.error}">Invalid username and password.</div>
+<div th:if="${param.logout}">You have been logged out.</div>
+<form th:action="@{/loginact}" method="post">
+  <table border="1" align="center">
+    <tr>
+      <th>아이디</th>
+      <td>
+        <input type="text" name="m_id" value="dnsgkr">
+      </td>
+    </tr>
+
+    <tr>
+      <th>비밀번호</th>
+      <td>
+        <input type="text" name="m_pw" value="1234">
+      </td>
+    </tr>
+    <tr><td><input type="submit" value="전송">
+      <input type="button" onclick="location.href='/signup';" value="Sign Up" /></td></tr>
+  </table>
+</form>
+</body>
+
+</html>
